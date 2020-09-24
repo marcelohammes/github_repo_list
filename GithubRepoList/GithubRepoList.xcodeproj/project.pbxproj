@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,8 @@
 		364D3735251C10A000C63C2C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D3734251C10A000C63C2C /* BaseViewController.swift */; };
 		364D373A251C10A200C63C2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364D3739251C10A200C63C2C /* Assets.xcassets */; };
 		364D373D251C10A200C63C2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364D373B251C10A200C63C2C /* LaunchScreen.storyboard */; };
-		364D3748251C10A200C63C2C /* GithubRepoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D3747251C10A200C63C2C /* GithubRepoListTests.swift */; };
-		364D3753251C10A200C63C2C /* GithubRepoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D3752251C10A200C63C2C /* GithubRepoListUITests.swift */; };
+		364D3769251C15D400C63C2C /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 364D3768251C15D400C63C2C /* Nimble */; };
+		364D376B251C161700C63C2C /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D376A251C161700C63C2C /* BaseViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +42,10 @@
 		364D373C251C10A200C63C2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		364D373E251C10A200C63C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		364D3743251C10A200C63C2C /* GithubRepoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubRepoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		364D3747251C10A200C63C2C /* GithubRepoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoListTests.swift; sourceTree = "<group>"; };
 		364D3749251C10A200C63C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		364D374E251C10A200C63C2C /* GithubRepoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubRepoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		364D3752251C10A200C63C2C /* GithubRepoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoListUITests.swift; sourceTree = "<group>"; };
 		364D3754251C10A200C63C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		364D376A251C161700C63C2C /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364D3769251C15D400C63C2C /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +112,7 @@
 		364D3746251C10A200C63C2C /* GithubRepoListTests */ = {
 			isa = PBXGroup;
 			children = (
-				364D3747251C10A200C63C2C /* GithubRepoListTests.swift */,
+				364D376A251C161700C63C2C /* BaseViewControllerTests.swift */,
 				364D3749251C10A200C63C2C /* Info.plist */,
 			);
 			path = GithubRepoListTests;
@@ -121,7 +121,6 @@
 		364D3751251C10A200C63C2C /* GithubRepoListUITests */ = {
 			isa = PBXGroup;
 			children = (
-				364D3752251C10A200C63C2C /* GithubRepoListUITests.swift */,
 				364D3754251C10A200C63C2C /* Info.plist */,
 			);
 			path = GithubRepoListUITests;
@@ -173,6 +172,8 @@
 			dependencies = (
 			);
 			name = GithubRepoList;
+			packageProductDependencies = (
+			);
 			productName = GithubRepoList;
 			productReference = 364D372D251C10A000C63C2C /* GithubRepoList.app */;
 			productType = "com.apple.product-type.application";
@@ -191,6 +192,9 @@
 				364D3745251C10A200C63C2C /* PBXTargetDependency */,
 			);
 			name = GithubRepoListTests;
+			packageProductDependencies = (
+				364D3768251C15D400C63C2C /* Nimble */,
+			);
 			productName = GithubRepoListTests;
 			productReference = 364D3743251C10A200C63C2C /* GithubRepoListTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -245,6 +249,9 @@
 				Base,
 			);
 			mainGroup = 364D3724251C10A000C63C2C;
+			packageReferences = (
+				364D3767251C15D400C63C2C /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 364D372E251C10A000C63C2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -297,7 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				364D3748251C10A200C63C2C /* GithubRepoListTests.swift in Sources */,
+				364D376B251C161700C63C2C /* BaseViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				364D3753251C10A200C63C2C /* GithubRepoListUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +616,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		364D3767251C15D400C63C2C /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		364D3768251C15D400C63C2C /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 364D3767251C15D400C63C2C /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 364D3725251C10A000C63C2C /* Project object */;
 }
