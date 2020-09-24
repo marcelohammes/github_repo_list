@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36268D73251C472800A8DFB8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36268D72251C472800A8DFB8 /* Repository.swift */; };
+		36268D7A251C484500A8DFB8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36268D79251C484500A8DFB8 /* Service.swift */; };
 		364D3731251C10A000C63C2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D3730251C10A000C63C2C /* AppDelegate.swift */; };
 		364D3733251C10A000C63C2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D3732251C10A000C63C2C /* SceneDelegate.swift */; };
 		364D3735251C10A000C63C2C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D3734251C10A000C63C2C /* BaseViewController.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36268D72251C472800A8DFB8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		36268D79251C484500A8DFB8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		364D372D251C10A000C63C2C /* GithubRepoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubRepoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364D3730251C10A000C63C2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		364D3732251C10A000C63C2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36268D77251C478400A8DFB8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				36268D79251C484500A8DFB8 /* Service.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		36268D78251C47D900A8DFB8 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		364D3724251C10A000C63C2C = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +116,8 @@
 		364D372F251C10A000C63C2C /* GithubRepoList */ = {
 			isa = PBXGroup;
 			children = (
+				36268D78251C47D900A8DFB8 /* Repositories */,
+				36268D77251C478400A8DFB8 /* Network */,
 				364D3763251C11AA00C63C2C /* Resources */,
 				364D3762251C119600C63C2C /* Controllers */,
 				364D3761251C119000C63C2C /* Views */,
@@ -129,6 +150,7 @@
 		364D3760251C118200C63C2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				36268D72251C472800A8DFB8 /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,7 +246,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Marcelo Hammes";
 				TargetAttributes = {
 					364D372C251C10A000C63C2C = {
@@ -294,7 +316,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36268D73251C472800A8DFB8 /* Repository.swift in Sources */,
 				364D3735251C10A000C63C2C /* BaseViewController.swift in Sources */,
+				36268D7A251C484500A8DFB8 /* Service.swift in Sources */,
 				364D3731251C10A000C63C2C /* AppDelegate.swift in Sources */,
 				364D3733251C10A000C63C2C /* SceneDelegate.swift in Sources */,
 			);
@@ -368,6 +392,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -428,6 +453,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
