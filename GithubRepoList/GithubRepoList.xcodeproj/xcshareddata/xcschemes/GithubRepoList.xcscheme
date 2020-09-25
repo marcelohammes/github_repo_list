@@ -39,16 +39,6 @@
                ReferencedContainer = "container:GithubRepoList.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "364D374D251C10A200C63C2C"
-               BuildableName = "GithubRepoListUITests.xctest"
-               BlueprintName = "GithubRepoListUITests"
-               ReferencedContainer = "container:GithubRepoList.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

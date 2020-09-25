@@ -61,64 +61,7 @@ extension Service {
     }
 }
 
-enum GithubService {
-    case searchRepositories(language: String, page: Int, perPage: Int)
-}
 
-extension GithubService: Service {
-    var baseURL: String { return "https://api.github.com" }
-    
-    var path: String {
-        switch self {
-        case .searchRepositories:
-            return "/search/repositories"
-        }
-    }
-    
-    var headers: [String : String]? {
-        ["Content-type": "application/json",
-         "accept": "application/vnd.github.v3+json"]
-    }
-    
-    var parameters: [String : Any]? {
-        switch self {
-        case .searchRepositories(let language, let page, let perPage):
-            return ["q": "language:\(language)",
-                    "page": "\(page)",
-                    "per_page": "\(perPage)"]
-        }
-    }
-    
-    var method: ServiceMethod { .get }
-}
 
-struct Agent {
-    let session = URLSession.shared
-    
-    func run<T>(_ service: Service, _ decoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<T, Error> where T: Decodable {
-        return session
-            .dataTaskPublisher(for: service.urlRequest)
-            .map(\.data)
-            .decode(type: T.self, decoder: decoder)
-            .eraseToAnyPublisher()
-    }
-}
 
-struct GithubAPI {
-    static let agent = Agent()
-}
 
-extension GithubAPI {
-        
-    static func starestSwiftRepos(page: Int = 1, perPage: Int = 10) -> AnyPublisher<GithubResponse, Error> {
-        let service = GithubService.searchRepositories(language: "swift", page: page, perPage: perPage)
-        return run(service)
-        
-    }
-
-    static func run<T>(_ service: Service) -> AnyPublisher<T, Error> where T: Decodable {
-        return agent.run(service)
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-}

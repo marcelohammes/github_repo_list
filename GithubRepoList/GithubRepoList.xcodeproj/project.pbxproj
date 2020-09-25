@@ -16,6 +16,9 @@
 		364D373D251C10A200C63C2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364D373B251C10A200C63C2C /* LaunchScreen.storyboard */; };
 		364D3769251C15D400C63C2C /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 364D3768251C15D400C63C2C /* Nimble */; };
 		364D376B251C161700C63C2C /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D376A251C161700C63C2C /* BaseViewControllerTests.swift */; };
+		36EF1BE9251D5145008BE0B0 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF1BE8251D5145008BE0B0 /* GithubService.swift */; };
+		36EF1BEE251D516C008BE0B0 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF1BED251D516C008BE0B0 /* ServiceProvider.swift */; };
+		36EF1BF3251D5195008BE0B0 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EF1BF2251D5195008BE0B0 /* GithubAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		364D374E251C10A200C63C2C /* GithubRepoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubRepoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		364D3754251C10A200C63C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		364D376A251C161700C63C2C /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
+		36EF1BE8251D5145008BE0B0 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		36EF1BED251D516C008BE0B0 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		36EF1BF2251D5195008BE0B0 /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				36268D79251C484500A8DFB8 /* Service.swift */,
+				36EF1BE8251D5145008BE0B0 /* GithubService.swift */,
+				36EF1BED251D516C008BE0B0 /* ServiceProvider.swift */,
+				36EF1BF2251D5195008BE0B0 /* GithubAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -318,9 +327,12 @@
 			files = (
 				36268D73251C472800A8DFB8 /* Repository.swift in Sources */,
 				364D3735251C10A000C63C2C /* BaseViewController.swift in Sources */,
+				36EF1BEE251D516C008BE0B0 /* ServiceProvider.swift in Sources */,
+				36EF1BE9251D5145008BE0B0 /* GithubService.swift in Sources */,
 				36268D7A251C484500A8DFB8 /* Service.swift in Sources */,
 				364D3731251C10A000C63C2C /* AppDelegate.swift in Sources */,
 				364D3733251C10A000C63C2C /* SceneDelegate.swift in Sources */,
+				36EF1BF3251D5195008BE0B0 /* GithubAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -472,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -489,6 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LGQ4B5FPUG;
 				INFOPLIST_FILE = GithubRepoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,6 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LGQ4B5FPUG;
 				INFOPLIST_FILE = GithubRepoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LGQ4B5FPUG;
 				INFOPLIST_FILE = GithubRepoListTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -548,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LGQ4B5FPUG;
 				INFOPLIST_FILE = GithubRepoListTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
