@@ -7,6 +7,7 @@
 //
 
 @testable import GithubRepoList
+import Quick
 import Nimble
 import XCTest
 

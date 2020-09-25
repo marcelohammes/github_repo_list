@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import Combine
 
 class BaseViewController<View: UIView>: UIViewController {
-    
-    private var disposables = Set<AnyCancellable>()
     
     var customView: View {
         return view as! View
@@ -24,25 +21,14 @@ class BaseViewController<View: UIView>: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let _ = GithubAPI.starestSwiftRepos()
-            .print()
-            .sink { [weak self] value in
-//                guard let self = self else { return }
-                switch value {
-                case .failure:
-                    //                    self.dataSource = []
-                    print("fail")
-                    break
-                case .finished:
-                    print("finished")
-                    break
-                }
-            } receiveValue: { [weak self] repository in
-//                guard let self = self else { return }
-                print(repository)
-//                self.dataSource = forecast
+        GithubAPI.starestSwiftRepos(page: 1, perPage: 10) { (response) in
+            switch response {
+            case .success(let data):
+                print("data = \(data)")
+            case .failure(let error):
+                print("error = \(error)")
             }
-            .store(in: &disposables)
+        }
     }
 }
 

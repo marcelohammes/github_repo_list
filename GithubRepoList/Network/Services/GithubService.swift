@@ -12,8 +12,16 @@ enum GithubService {
     case searchRepositories(language: String, page: Int, perPage: Int)
 }
 
-extension GithubService: Service {
-    var baseURL: String { return "https://api.github.com" }
+extension GithubService: ServiceProtocol {
+    var baseURL: URL { URL(string: "https://api.github.com")! }
+    
+    var task: Task {
+        return .requestParameters(parameters ?? [:])
+    }
+    
+    var parametersEncoding: ParametersEncoding {
+        return .url
+    }
     
     var path: String {
         switch self {
@@ -21,12 +29,12 @@ extension GithubService: Service {
             return "/search/repositories"
         }
     }
-    
+
     var headers: [String : String]? {
         ["Content-type": "application/json",
          "accept": "application/vnd.github.v3+json"]
     }
-    
+
     var parameters: [String : Any]? {
         switch self {
         case .searchRepositories(let language, let page, let perPage):
@@ -35,6 +43,6 @@ extension GithubService: Service {
                     "per_page": "\(perPage)"]
         }
     }
-    
-    var method: ServiceMethod { .get }
+
+    var method: HTTPMethod { .get }
 }
