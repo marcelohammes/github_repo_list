@@ -49,3 +49,32 @@ final class URLSessionMock: URLSessionProtocol {
         return dataTask
     }
 }
+
+
+final class GithubSessionMock: URLSessionProtocol {
+    private let dataTask: URLSessionDataTaskProtocol
+    var service: GithubService!
+    
+    init(dataTask: URLSessionDataTaskProtocol) {
+        self.dataTask = dataTask
+    }
+    
+    func dataTask(request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
+        switch service {
+        case .searchRepositories(let language, let page, let perPage):
+            let data = getData(name: "StarestSwiftRepos")
+            let response = HTTPURLResponse(url: service.baseURL, statusCode: 200, httpVersion: nil, headerFields: nil)
+            completionHandler(data, response, nil)
+        default: break
+        }
+        
+        return dataTask
+    }
+    
+    func getData(name: String, withExtension: String = "json") -> Data {
+        let testBundle = Bundle(for: type(of: self))
+        let path = testBundle.path(forResource: name, ofType: "json")
+        let data = try! Data(contentsOf: URL(fileURLWithPath: path!), options: .alwaysMapped)
+        return data
+    }
+}

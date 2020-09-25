@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct GithubResponse: Codable {
+struct GithubResponse: Codable, Equatable {
     let items: [Repository]
 }
 
-struct Repository: Codable {
+struct Repository: Codable, Equatable {
     let id: Int
     let name: String
     let stars: Int
@@ -26,7 +26,7 @@ struct Repository: Codable {
     }
 }
 
-struct Owner: Codable {
+struct Owner: Codable, Equatable {
     let id: Int
     let login: String
     let avatarURL: URL

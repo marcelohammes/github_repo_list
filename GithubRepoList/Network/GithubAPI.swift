@@ -9,7 +9,7 @@
 import Foundation
 
 struct GithubAPI {
-    static let provider = URLSessionProvider()
+    static var provider = URLSessionProvider()
 }
 
 extension GithubAPI {
