@@ -8,27 +8,20 @@
 
 import UIKit
 
-class BaseViewController<View: UIView>: UIViewController {
+class BaseViewController<CustomView: BaseView>: UIViewController {
     
-    var customView: View {
-        return view as! View
+    var customView: CustomView {
+        return view as! CustomView
     }
     
     override func loadView() {
-        view = View()
+        view = CustomView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        GithubAPI.starestSwiftRepos(page: 1, perPage: 10) { (response) in
-            switch response {
-            case .success(let data):
-                print("data = \(data)")
-            case .failure(let error):
-                print("error = \(error)")
-            }
-        }
+//        customView.setupViews()
+//        customView.setupConstraints()
     }
 }
 
