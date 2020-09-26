@@ -12,7 +12,7 @@ class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
     
     let reposPerPage = 10
     
-    var repositories: [Repository]? {
+    var repositories: [Repository] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.customView.reloadData()
@@ -46,11 +46,11 @@ class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
 
 extension GithubRepoListViewController: GithubRepoListViewDataSource {
     func repositoriesCount() -> Int {
-        repositories?.count ?? 0
+        repositories.count
     }
 
     func repository(for indexPath: IndexPath) -> Repository? {
-        return repositories?[indexPath.row]
+        return repositories[indexPath.row]
     }
 
 }

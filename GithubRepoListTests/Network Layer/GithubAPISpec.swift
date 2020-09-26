@@ -13,23 +13,15 @@ import Foundation
 
 final class GithubAPISpec: QuickSpec {
     override func spec() {
-        var dataTask: URLSessionDataTaskMock!
-        var session: GithubSessionMock!
-        var provider: URLSessionProvider!
-        
         var response: NetworkResponse<GithubResponse>?
         
         beforeEach {
-            dataTask = URLSessionDataTaskMock()
-            session = GithubSessionMock(dataTask: dataTask)
-            provider = URLSessionProvider(session: session)
-            GithubAPI.provider = provider
             response = nil
         }
         
         when("starestSwiftRepos is Called") {
             beforeEach {
-                session.service = GithubService.searchRepositories(language: "Swift", page: 1, perPage: 10)
+                setGithubAPIMockService(GithubService.searchRepositories(language: "Swift", page: 1, perPage: 2))
                 GithubAPI.starestSwiftRepos(perPage: 2) { (networkResponse) in
                     response = networkResponse
                 }

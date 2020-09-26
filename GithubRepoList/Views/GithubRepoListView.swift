@@ -17,7 +17,7 @@ protocol GithubRepoListViewDelegate {
     func refreshData()
 }
 
-final class GithubRepoListView: BaseView {
+class GithubRepoListView: BaseView {
     let padding: CGFloat = 16
     
     lazy var githubReposCollectionView: UICollectionView = {
@@ -82,8 +82,8 @@ final class GithubRepoListView: BaseView {
     }
     
     func reloadData() {
-        githubReposCollectionView.reloadData()
-        refreshControl.endRefreshing()
+        self.githubReposCollectionView.reloadData()
+        self.refreshControl.endRefreshing()
     }
 }
 
