@@ -18,6 +18,7 @@ class GithubRepoListCollectionViewCell: UICollectionViewCell {
     lazy var repoNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
         return label
     }()
     lazy var startsCountLabel: UILabel = {
@@ -53,9 +54,9 @@ class GithubRepoListCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        backgroundColor = .white
-        
         setupShadow()
+        
+        backgroundColor = .systemBackground
         
         addSubview(repoNameLabel)
         addSubview(startsCountLabel)
@@ -67,9 +68,9 @@ class GithubRepoListCollectionViewCell: UICollectionViewCell {
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 5)
         layer.cornerRadius = 5
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor.systemFill.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 3)
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 1
         layer.shadowPath = shadowPath.cgPath
     }
     

@@ -28,7 +28,7 @@ final class GithubRepoListView: BaseView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .systemBackground
         collectionView.layer.masksToBounds = false
         return collectionView
     }()
@@ -57,7 +57,7 @@ final class GithubRepoListView: BaseView {
     override func setupViews() {
         
         githubReposCollectionView.alwaysBounceVertical = true
-//        self.refresher.tintColor = UIColor.red
+        refreshControl.tintColor = .label
         refreshControl.addTarget(delegate, action: #selector(refresherTriggered), for: .valueChanged)
         githubReposCollectionView.addSubview(refreshControl)
         

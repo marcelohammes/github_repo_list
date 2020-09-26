@@ -26,7 +26,7 @@ platform :ios do
       html: true,
       scheme: "GithubRepoList",
       proj: "GithubRepoList.xcodeproj",
-      # ignore: [ "R.generated.swift", "Pods/*"],
+      ignore: [ "../*"],
       verbose: true,
       show: true
   )

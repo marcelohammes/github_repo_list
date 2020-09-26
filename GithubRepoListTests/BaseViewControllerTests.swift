@@ -13,7 +13,7 @@ import XCTest
 
 class BaseViewControllerTests: XCTestCase {
 
-    var baseViewController: BaseViewController<UIView>!
+    var baseViewController: BaseViewController<BaseView>!
     
     override func setUp() {
         baseViewController = BaseViewController()
@@ -24,7 +24,7 @@ class BaseViewControllerTests: XCTestCase {
     }
 
     func testCustomView() {
-        expect(self.baseViewController.customView).to(beAKindOf(UIView.self))
+        expect(self.baseViewController.customView).to(beAKindOf(BaseView.self))
     }
 
 }
