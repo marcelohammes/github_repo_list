@@ -10,6 +10,12 @@ import Foundation
 
 struct GithubResponse: Codable, Equatable {
     let items: [Repository]
+    let totalCount: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case items
+        case totalCount = "total_count"
+    }
 }
 
 struct Repository: Codable, Equatable {

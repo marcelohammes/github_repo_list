@@ -11,10 +11,13 @@ import UIKit
 protocol GithubRepoListViewDataSource {
     func repository(for indexPath: IndexPath) -> Repository?
     func repositoriesCount() -> Int
+    func totalCount() -> Int
+    func prefetchNextPage()
 }
 
 protocol GithubRepoListViewDelegate {
     func refreshData()
+    //    func shouldLoadMore() -> Bool
 }
 
 class GithubRepoListView: BaseView {
@@ -28,6 +31,7 @@ class GithubRepoListView: BaseView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
         collectionView.backgroundColor = .systemBackground
         collectionView.layer.masksToBounds = false
         return collectionView
@@ -62,6 +66,7 @@ class GithubRepoListView: BaseView {
         githubReposCollectionView.addSubview(refreshControl)
         
         githubReposCollectionView.register(GithubRepoListCollectionViewCell.self, forCellWithReuseIdentifier: GithubRepoListCollectionViewCell.cellIdentifier)
+        githubReposCollectionView.register(LoadingCollectionViewCell.self, forCellWithReuseIdentifier: LoadingCollectionViewCell.cellIdentifier)
         
         addSubview(githubReposCollectionView)
     }
@@ -92,10 +97,18 @@ extension GithubRepoListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let dataSource = dataSource else { return 0 }
         
-        return dataSource.repositoriesCount()
+        return dataSource.totalCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard indexPath.row < dataSource?.repositoriesCount() ?? 0 else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoadingCollectionViewCell.cellIdentifier, for: indexPath) as? LoadingCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            return cell
+        }
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GithubRepoListCollectionViewCell.cellIdentifier, for: indexPath) as? GithubRepoListCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -109,7 +122,25 @@ extension GithubRepoListView: UICollectionViewDataSource {
     
 }
 
+extension GithubRepoListView: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        func isLoadingCell(for indexPath: IndexPath) -> Bool {
+//            print("isLoadingCell = \(indexPath.row >= dataSource?.repositori.esCount() ?? 0), indexPath.row = \(indexPath.row), dataSource?.repositoriesCount() = \(dataSource?.repositoriesCount())")
+            return indexPath.row >= (dataSource?.repositoriesCount() ?? 0)-2
+        }
+        
+        if indexPaths.contains(where: isLoadingCell) {
+            dataSource?.prefetchNextPage()
+        }
+    }
+}
+
 extension GithubRepoListView: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.visibleSize.height {
+            dataSource?.prefetchNextPage()
+        }
+    }
 }
 
 extension GithubRepoListView: UICollectionViewDelegateFlowLayout {

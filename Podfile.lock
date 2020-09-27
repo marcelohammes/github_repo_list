@@ -1,0 +1,26 @@
+PODS:
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+    - iOSSnapshotTestCase/Core
+  - KIF (3.7.11):
+    - KIF/Core (= 3.7.11)
+  - KIF/Core (3.7.11)
+
+DEPENDENCIES:
+  - iOSSnapshotTestCase
+  - KIF
+
+SPEC REPOS:
+  trunk:
+    - iOSSnapshotTestCase
+    - KIF
+
+SPEC CHECKSUMS:
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
+  KIF: 927c502455cd746771c57e9b3a5123c67c7fa0b5
+
+PODFILE CHECKSUM: 3cd622d18aa250cea0ff6f86ccc9a9319c06c4ec
+
+COCOAPODS: 1.9.3

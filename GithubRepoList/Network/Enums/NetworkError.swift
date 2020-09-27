@@ -10,5 +10,6 @@ import Foundation
 
 enum NetworkError {
     case unknown
+    case requestLimit
     case noJSONData
 }

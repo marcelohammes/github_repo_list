@@ -18,17 +18,21 @@ class GithubRepoListCollectionViewCell: UICollectionViewCell {
     lazy var repoNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 22)
         label.textColor = .label
         return label
     }()
     lazy var startsCountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textColor = UIColor(named: "starsColor")
         return label
     }()
     lazy var repoOwnerNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 14)
         return label
     }()
     lazy var repoOwnerAvatarImageView: UIImageView = {
@@ -56,22 +60,12 @@ class GithubRepoListCollectionViewCell: UICollectionViewCell {
     func setupViews() {
         setupShadow()
         
-        backgroundColor = .systemBackground
+        backgroundColor = .secondarySystemBackground
         
         addSubview(repoNameLabel)
         addSubview(startsCountLabel)
         addSubview(repoOwnerNameLabel)
         addSubview(repoOwnerAvatarImageView)
-    }
-    
-    func setupShadow() {
-        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 5)
-        layer.cornerRadius = 5
-        layer.masksToBounds = false
-        layer.shadowColor = UIColor.systemFill.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 3)
-        layer.shadowOpacity = 1
-        layer.shadowPath = shadowPath.cgPath
     }
     
     func setupConstraints() {
@@ -111,7 +105,61 @@ class GithubRepoListCollectionViewCell: UICollectionViewCell {
     func setData(repository: Repository) {
         repoOwnerAvatarImageView.kf.setImage(with: repository.owner.avatarURL)
         repoNameLabel.text = repository.name
-        repoOwnerNameLabel.text = repository.owner.login
+        repoOwnerNameLabel.text = "👤 \(repository.owner.login)"
         startsCountLabel.text = "★ \(repository.stars)"
+    }
+}
+
+extension UIView {
+    func setupShadow() {
+        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 5)
+        layer.cornerRadius = 5
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.systemFill.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 3)
+        layer.shadowOpacity = 1
+        layer.shadowPath = shadowPath.cgPath
+    }
+}
+
+class LoadingCollectionViewCell: UICollectionViewCell {
+    static let cellIdentifier = "LoadingCollectionViewCell"
+    
+    private let loaderDimension: CGFloat = 50
+    
+    lazy var loader: UIActivityIndicatorView = {
+        let loader = UIActivityIndicatorView()
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        return loader
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Invalid constructor")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupConstraints()
+        loader.startAnimating()
+    }
+    
+    func setupViews() {
+        setupShadow()
+        backgroundColor = .secondarySystemBackground
+        addSubview(loader)
+    }
+    
+    func setupConstraints() {
+        
+        let loaderConstraints = [
+            loader.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ]
+        NSLayoutConstraint.activate(loaderConstraints)
     }
 }
