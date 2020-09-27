@@ -10,7 +10,7 @@ import UIKit
 
 class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
     
-    let reposPerPage = 10
+    let reposPerPage = 40
     var currentPage = 1
     var isFetching = false
     var hasMoreResults = true
@@ -86,7 +86,7 @@ class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
 
 extension GithubRepoListViewController: GithubRepoListViewDataSource {
     func totalCount() -> Int {
-        return self.currentPage * 10
+        return self.currentPage * reposPerPage
     }
     
     func prefetchNextPage() {
@@ -112,14 +112,13 @@ extension GithubRepoListViewController: GithubRepoListViewDataSource {
 }
 
 
-extension GithubRepoListViewController: GithubRepoListViewDelegate {
-    //    func shouldLoadMore(indexPaths: [IndexPath]) -> Bool {
-    //        let indexPathsForVisibleRows = customView.githubReposCollectionView.indexPathsForVisibleItems
-    //        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
-    //        return Array(indexPathsIntersection)
-    //    }
-    
+extension GithubRepoListViewController: GithubRepoListViewDelegate {    
     func refreshData() {
+        if let blockFetchForOneMinuteFrom = blockFetchForOneMinuteFrom, Date().timeIntervalSince(blockFetchForOneMinuteFrom) <= 60 {
+            customView.reloadData()
+            return
+        }
+        
         loadData()
     }
     

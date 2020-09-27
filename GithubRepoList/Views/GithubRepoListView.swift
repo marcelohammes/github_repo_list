@@ -17,12 +17,11 @@ protocol GithubRepoListViewDataSource {
 
 protocol GithubRepoListViewDelegate {
     func refreshData()
-    //    func shouldLoadMore() -> Bool
 }
 
 class GithubRepoListView: BaseView {
     let padding: CGFloat = 16
-    
+    var didBeginScrollToTop = false
     lazy var githubReposCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
@@ -125,7 +124,6 @@ extension GithubRepoListView: UICollectionViewDataSource {
 extension GithubRepoListView: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         func isLoadingCell(for indexPath: IndexPath) -> Bool {
-//            print("isLoadingCell = \(indexPath.row >= dataSource?.repositori.esCount() ?? 0), indexPath.row = \(indexPath.row), dataSource?.repositoriesCount() = \(dataSource?.repositoriesCount())")
             return indexPath.row >= (dataSource?.repositoriesCount() ?? 0)-2
         }
         
@@ -136,10 +134,23 @@ extension GithubRepoListView: UICollectionViewDataSourcePrefetching {
 }
 
 extension GithubRepoListView: UICollectionViewDelegate {
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        didBeginScrollToTop = true
+        return true
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.visibleSize.height {
             dataSource?.prefetchNextPage()
         }
+        
+        guard didBeginScrollToTop, scrollView.contentOffset.y < -25 else { return }
+
+        scrollView.setContentOffset(.zero, animated: true)
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        didBeginScrollToTop = false
     }
 }
 
