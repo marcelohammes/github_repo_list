@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  GithubRepoList
+
+  Created by Marcelo Hammes on 26/09/20.
+  Copyright © 2020 Marcelo Hammes. All rights reserved.
+*/
+
+"swiftGithubStarestRepos" = "Swift Repos by Stars";
+"GithubAPILimitError"="Atingimos o limite de requisições de API. Por favor, tente novamente em 1 minuto";
+"GithubAPINoJSON" = "O serviço do Github não retornou resultados";
+"GithubAPIGenericError" = "Houve um erro desconhecido ao solicitar mais resultados";
+"OK"="OK";
