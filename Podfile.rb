@@ -8,4 +8,5 @@ end
 
 target 'GithubRepoListKIFTests' do
   pod 'KIF', :configurations => ['Debug']
+  pod 'KIF/IdentifierTests', :configurations => ['Debug']
 end

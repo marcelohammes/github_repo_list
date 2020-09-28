@@ -45,6 +45,7 @@ class GithubRepoListCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        accessibilityLabel = "Github Repositories List Item"
         setupViews()
     }
     
@@ -135,6 +136,7 @@ class LoadingCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        accessibilityLabel = "Loading Item"
         setupViews()
     }
     

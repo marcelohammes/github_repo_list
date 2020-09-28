@@ -10,8 +10,8 @@
 		2C8513ED996E8FEF4CBD7E42 /* libPods-GithubRepoListKIFTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 803466651143A989E990E080 /* libPods-GithubRepoListKIFTests.a */; };
 		361A93A8251D86AF0014B41C /* QuickCustomAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A93A7251D86AF0014B41C /* QuickCustomAliases.swift */; };
 		361A93AF251D87820014B41C /* ServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A93AE251D87820014B41C /* ServiceMock.swift */; };
-		361A93BB251D87FD0014B41C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 361A93BA251D87FD0014B41C /* SwiftPackageProductDependency */; };
-		361A93C4251D88460014B41C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 361A93C3251D88460014B41C /* SwiftPackageProductDependency */; };
+		361A93BB251D87FD0014B41C /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 361A93BA251D87FD0014B41C /* Quick */; };
+		361A93C4251D88460014B41C /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 361A93C3251D88460014B41C /* Nimble */; };
 		361A93CA251D8B3B0014B41C /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A93C9251D8B3B0014B41C /* ServiceModel.swift */; };
 		361A93D3251D8BAA0014B41C /* URLSessionProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A93D2251D8BAA0014B41C /* URLSessionProviderSpec.swift */; };
 		361A93E2251D8CBA0014B41C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A93E1251D8CBA0014B41C /* HTTPMethod.swift */; };
@@ -43,7 +43,7 @@
 		3692A08A251EBE39000E8B0B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692A089251EBE39000E8B0B /* BaseView.swift */; };
 		3692A08F251EBE9D000E8B0B /* GithubRepoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692A08E251EBE9D000E8B0B /* GithubRepoListView.swift */; };
 		3692A09F251EEB43000E8B0B /* GithubRepoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692A09E251EEB43000E8B0B /* GithubRepoListTableViewCell.swift */; };
-		3692A0AF251EF462000E8B0B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 3692A0AE251EF462000E8B0B /* SwiftPackageProductDependency */; };
+		3692A0AF251EF462000E8B0B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3692A0AE251EF462000E8B0B /* Kingfisher */; };
 		3692A0B4251F01D4000E8B0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3692A0B3251F01D4000E8B0B /* Localizable.strings */; };
 		3692A0BA251FB5D7000E8B0B /* GithubRepoListViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692A0B9251FB5D7000E8B0B /* GithubRepoListViewSpec.swift */; };
 		3692A0C3251FB621000E8B0B /* GithubRepoListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692A0C2251FB621000E8B0B /* GithubRepoListViewControllerSpec.swift */; };
@@ -127,9 +127,6 @@
 		3692A0CD251FB78B000E8B0B /* BaseViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewSpec.swift; sourceTree = "<group>"; };
 		3692A0DA251FCEEE000E8B0B /* GithubRepoListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoListViewMock.swift; sourceTree = "<group>"; };
 		3692A1262520415A000E8B0B /* GithubRepoListSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoListSnapshotTest.swift; sourceTree = "<group>"; };
-		3692A14325204F5F000E8B0B /* GithubRepoListKIFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoListKIFTests.swift; sourceTree = "<group>"; };
-		3692A14525204F5F000E8B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3692A15B252050EB000E8B0B /* GithubRepoListKIFTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GithubRepoListKIFTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3692A16B25205195000E8B0B /* GithubRepoListKIFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubRepoListKIFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3692A16D25205195000E8B0B /* GithubRepoListKIFTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GithubRepoListKIFTests.m; sourceTree = "<group>"; };
 		3692A16F25205195000E8B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,7 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3692A0AF251EF462000E8B0B /* BuildFile in Frameworks */,
+				3692A0AF251EF462000E8B0B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				361A93BB251D87FD0014B41C /* BuildFile in Frameworks */,
-				361A93C4251D88460014B41C /* BuildFile in Frameworks */,
+				361A93BB251D87FD0014B41C /* Quick in Frameworks */,
+				361A93C4251D88460014B41C /* Nimble in Frameworks */,
 				8F49649D1A730D9685D05D71 /* Pods_GithubRepoListTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +277,6 @@
 				364D372F251C10A000C63C2C /* GithubRepoList */,
 				364D3746251C10A200C63C2C /* GithubRepoListTests */,
 				364D3751251C10A200C63C2C /* GithubRepoListUITests */,
-				3692A14225204F5F000E8B0B /* GithubRepoListKIFTests */,
 				3692A16C25205195000E8B0B /* GithubRepoListKIFTests */,
 				364D372E251C10A000C63C2C /* Products */,
 				68EF667711A8440969274630 /* Pods */,
@@ -453,16 +449,6 @@
 			path = Snapshots;
 			sourceTree = "<group>";
 		};
-		3692A14225204F5F000E8B0B /* GithubRepoListKIFTests */ = {
-			isa = PBXGroup;
-			children = (
-				3692A14325204F5F000E8B0B /* GithubRepoListKIFTests.swift */,
-				3692A14525204F5F000E8B0B /* Info.plist */,
-				3692A15B252050EB000E8B0B /* GithubRepoListKIFTests-Bridging-Header.h */,
-			);
-			path = GithubRepoListKIFTests;
-			sourceTree = "<group>";
-		};
 		3692A16C25205195000E8B0B /* GithubRepoListKIFTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,7 +495,7 @@
 			);
 			name = GithubRepoList;
 			packageProductDependencies = (
-				3692A0AE251EF462000E8B0B /* SwiftPackageProductDependency */,
+				3692A0AE251EF462000E8B0B /* Kingfisher */,
 			);
 			productName = GithubRepoList;
 			productReference = 364D372D251C10A000C63C2C /* GithubRepoList.app */;
@@ -532,8 +518,8 @@
 			);
 			name = GithubRepoListTests;
 			packageProductDependencies = (
-				361A93BA251D87FD0014B41C /* SwiftPackageProductDependency */,
-				361A93C3251D88460014B41C /* SwiftPackageProductDependency */,
+				361A93BA251D87FD0014B41C /* Quick */,
+				361A93C3251D88460014B41C /* Nimble */,
 			);
 			productName = GithubRepoListTests;
 			productReference = 364D3743251C10A200C63C2C /* GithubRepoListTests.xctest */;
@@ -613,9 +599,9 @@
 			);
 			mainGroup = 364D3724251C10A000C63C2C;
 			packageReferences = (
-				361A93B9251D87FD0014B41C /* RemoteSwiftPackageReference */,
-				361A93C2251D88460014B41C /* RemoteSwiftPackageReference */,
-				3692A0AD251EF462000E8B0B /* RemoteSwiftPackageReference */,
+				361A93B9251D87FD0014B41C /* XCRemoteSwiftPackageReference "Quick" */,
+				361A93C2251D88460014B41C /* XCRemoteSwiftPackageReference "Nimble" */,
+				3692A0AD251EF462000E8B0B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 364D372E251C10A000C63C2C /* Products */;
 			projectDirPath = "";
@@ -1160,7 +1146,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		361A93B9251D87FD0014B41C /* RemoteSwiftPackageReference */ = {
+		361A93B9251D87FD0014B41C /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick.git";
 			requirement = {
@@ -1168,7 +1154,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		361A93C2251D88460014B41C /* RemoteSwiftPackageReference */ = {
+		361A93C2251D88460014B41C /* XCRemoteSwiftPackageReference "Nimble" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Nimble.git";
 			requirement = {
@@ -1176,7 +1162,7 @@
 				minimumVersion = "9.0.0-rc.3";
 			};
 		};
-		3692A0AD251EF462000E8B0B /* RemoteSwiftPackageReference */ = {
+		3692A0AD251EF462000E8B0B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1187,19 +1173,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		361A93BA251D87FD0014B41C /* SwiftPackageProductDependency */ = {
+		361A93BA251D87FD0014B41C /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 361A93B9251D87FD0014B41C /* RemoteSwiftPackageReference */;
+			package = 361A93B9251D87FD0014B41C /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
 		};
-		361A93C3251D88460014B41C /* SwiftPackageProductDependency */ = {
+		361A93C3251D88460014B41C /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 361A93C2251D88460014B41C /* RemoteSwiftPackageReference */;
+			package = 361A93C2251D88460014B41C /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
 		};
-		3692A0AE251EF462000E8B0B /* SwiftPackageProductDependency */ = {
+		3692A0AE251EF462000E8B0B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3692A0AD251EF462000E8B0B /* RemoteSwiftPackageReference */;
+			package = 3692A0AD251EF462000E8B0B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

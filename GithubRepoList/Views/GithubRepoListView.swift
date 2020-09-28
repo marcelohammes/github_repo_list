@@ -33,11 +33,14 @@ class GithubRepoListView: BaseView {
         collectionView.prefetchDataSource = self
         collectionView.backgroundColor = .systemBackground
         collectionView.layer.masksToBounds = false
+        collectionView.accessibilityLabel = "Github Repositories List"
+        collectionView.accessibilityIdentifier = "Github Repositories List"
         return collectionView
     }()
     
     lazy var refreshControl: UIRefreshControl = {
         let refresher = UIRefreshControl()
+        refresher.accessibilityLabel = "Refresh Indicator"
         return refresher
     }()
     

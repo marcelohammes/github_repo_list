@@ -10,6 +10,7 @@
 import Nimble
 import Quick
 import Foundation
+import UIKit
 
 class GithubRepoListViewControllerSpec: QuickSpec {
     override func spec() {
@@ -49,15 +50,55 @@ class GithubRepoListViewControllerSpec: QuickSpec {
             }
         }
         
-        when("loadData is called with failure") {
+        when("prefetchNextPage can be called and its called") {
+            var page = 0
             beforeEach {
-                setGithubAPIMockServiceWith500()
-                viewController.loadData()
+                page = viewController.currentPage
+                viewController.hasMoreResults = true
+                viewController.reposPerPage = 0
+                viewController.prefetchNextPage()
             }
             
-            then("repositories should be empty") {
-                expect(viewController.repositories).toEventually(beEmpty())
+            then("viewController.isFetching should be true") {
+                expect(viewController.currentPage).to(beGreaterThan(page))
             }
         }
+        
+//        when("the API requests is blocked") {
+//            beforeEach {
+//                viewController.blockFetchForOneMinuteFrom = Date()
+//                viewController.prefetchNextPage()
+//            }
+//            
+//            then("") {
+//                expect(viewcontroller.)
+//            }
+//        }
+        
+//        when("loadData is called with failure") {
+//            beforeEach {
+//                setGithubAPIMockServiceWith500()
+//                viewController.loadData()
+//            }
+//            
+//            then("repositories should be empty") {
+//                expect(viewController.repositories).toEventually(beEmpty())
+//            }
+//        }
+        
+//        when("loadData is called with requestLimit failure") {
+//            beforeEach {
+//                setGithubAPIMockServiceWith403()
+//                viewController.loadData()
+//            }
+//            
+//            then("An UIAlertViewController should be presented with the string: GithubAPILimitError") {
+//                expect(viewController.presentedViewController).to(beAKindOf(UIAlertController.self))
+//                
+//                guard let alertVC = viewController.presentedViewController as! UIAlertController else { return }
+//                
+//                expect(alertVC.message).to(equal(NSLocalizedString("UIAlertController", comment: "")))
+//            }
+//        }
     }
 }

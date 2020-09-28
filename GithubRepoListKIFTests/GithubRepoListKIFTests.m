@@ -15,21 +15,28 @@
 
 @implementation GithubRepoListKIFTests
 
-- (void)beforeEach
-{
-    [tester waitForTimeInterval:10];
+- (void)beforeEach {
+    [viewTester waitForTimeInterval:5];
 }
 
-- (void)afterEach
-{
+- (void)testInFirstPullToRefresh {
+    [tester pullToRefreshViewWithAccessibilityLabel:@"Github Repositories List" value:0];
     
+    [tester waitForViewWithAccessibilityLabel:@"Refresh Indicator"];
 }
 
-- (void)testPullToRefresh
-{
-    [tester pullToRefreshViewWithAccessibilityLabel:@"" value:0];
-    // Verify that the login succeeded
-//    [tester waitForTappableViewWithAccessibilityLabel:@"Welcome"];
+- (void)testInSecondInfiniteScroll {
+    // Make many scrolls to bottom
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    [tester scrollViewWithAccessibilityIdentifier:@"Github Repositories List" byFractionOfSizeHorizontal:0.0 vertical:-0.9];
+    
+    [tester waitForViewWithAccessibilityLabel:@"Loading Item"];
 }
 
 @end

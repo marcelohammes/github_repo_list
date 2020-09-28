@@ -40,6 +40,9 @@ final class URLSessionMock: URLSessionProtocol {
         case .errorWith400:
             let response = HTTPURLResponse(url: service.baseURL, statusCode: 400, httpVersion: nil, headerFields: nil)
             completionHandler(nil, response, nil)
+        case .errorWith403:
+            let response = HTTPURLResponse(url: service.baseURL, statusCode: 403, httpVersion: nil, headerFields: nil)
+            completionHandler(nil, response, nil)
         case .errorWith500:
             let response = HTTPURLResponse(url: service.baseURL, statusCode: 500, httpVersion: nil, headerFields: nil)
             completionHandler(nil, response, nil)
@@ -61,7 +64,7 @@ final class GithubSessionMock: URLSessionProtocol {
     
     func dataTask(request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
         switch service {
-        case .searchRepositories(let language, let page, let perPage):
+        case .searchRepositories( _, _, _):
             let data = getData(name: "StarestSwiftRepos")
             let response = HTTPURLResponse(url: service.baseURL, statusCode: 200, httpVersion: nil, headerFields: nil)
             completionHandler(data, response, nil)

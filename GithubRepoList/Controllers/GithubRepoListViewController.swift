@@ -10,11 +10,10 @@ import UIKit
 
 class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
     
-    let reposPerPage = 40
+    var reposPerPage = 40
     var currentPage = 1
     var isFetching = false
     var hasMoreResults = true
-    var blockFetchForOneMinuteFrom: Date?
     
     var repositories: [Repository?] = [] {
         didSet {
@@ -25,13 +24,14 @@ class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         
         customView.dataSource = self
         customView.delegate = self
         title = NSLocalizedString("swiftGithubStarestRepos", comment: "")
         
-        loadData(page: currentPage)
+        loadData()
     }
     
     func loadData(page: Int = 1) {
@@ -56,7 +56,6 @@ class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
             case .failure(let error):
                 switch error {
                 case .requestLimit:
-                    self.blockFetchForOneMinuteFrom = Date()
                     self.showAlert(message: NSLocalizedString("GithubAPILimitError", comment: ""))
                 case .noJSONData:
                     self.showAlert(message: NSLocalizedString("GithubAPINoJSON", comment: ""))
@@ -64,7 +63,7 @@ class GithubRepoListViewController: BaseViewController<GithubRepoListView> {
                     self.showAlert(message: NSLocalizedString("GithubAPIGenericError", comment: ""))
                 }
                 self.isFetching = false
-                self.currentPage = page-1
+                self.currentPage = (self.repositories.count/self.reposPerPage)-1
                 DispatchQueue.main.async{
                     self.customView.reloadData()
                 }
@@ -90,11 +89,6 @@ extension GithubRepoListViewController: GithubRepoListViewDataSource {
     }
     
     func prefetchNextPage() {
-
-        if let blockFetchForOneMinuteFrom = blockFetchForOneMinuteFrom, Date().timeIntervalSince(blockFetchForOneMinuteFrom) <= 60 {
-            return
-        }
-        
         if hasMoreResults && (currentPage)*reposPerPage <= repositories.count {
             loadData(page: currentPage+1)
             customView.reloadData()
@@ -114,11 +108,6 @@ extension GithubRepoListViewController: GithubRepoListViewDataSource {
 
 extension GithubRepoListViewController: GithubRepoListViewDelegate {    
     func refreshData() {
-        if let blockFetchForOneMinuteFrom = blockFetchForOneMinuteFrom, Date().timeIntervalSince(blockFetchForOneMinuteFrom) <= 60 {
-            customView.reloadData()
-            return
-        }
-        
         loadData()
     }
     

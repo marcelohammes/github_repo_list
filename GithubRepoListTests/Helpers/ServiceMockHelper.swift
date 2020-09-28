@@ -26,3 +26,12 @@ func setGithubAPIMockServiceWith500() {
     GithubAPI.provider = provider
     session.service = ServiceMock.errorWith500
 }
+
+func setGithubAPIMockServiceWith403() {
+    let dataTask = URLSessionDataTaskMock()
+    let session = URLSessionMock(dataTask: dataTask)
+    let provider = URLSessionProvider(session: session)
+    
+    GithubAPI.provider = provider
+    session.service = ServiceMock.errorWith403
+}

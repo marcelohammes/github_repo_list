@@ -16,6 +16,7 @@ enum ServiceMock: ServiceProtocol {
     case jsonResponseWith200
     case jsonResponseWithURLParametersWith200
     case errorWith400
+    case errorWith403
     case errorWith500
     
     var baseURL: URL { URL(string: "https://google.com/")! }

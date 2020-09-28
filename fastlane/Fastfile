@@ -22,7 +22,7 @@ platform :ios do
   
   slather(
       output_directory: "fastlane/html",
-      # workspace: "Home.xcworkspace",
+      workspace: "GithubRepoList.xcworkspace",
       html: true,
       scheme: "GithubRepoList",
       proj: "GithubRepoList.xcodeproj",

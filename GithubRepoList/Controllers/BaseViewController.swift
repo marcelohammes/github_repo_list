@@ -20,8 +20,6 @@ class BaseViewController<CustomView: BaseView>: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        customView.setupViews()
-//        customView.setupConstraints()
     }
 }
 
